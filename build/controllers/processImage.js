@@ -41,26 +41,42 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs_1 = __importDefault(require("fs"));
 var sharp_1 = __importDefault(require("sharp"));
-var resMessage;
+/** @description - GLOBAL VARIABLE - array that will be added to and used in index.ejs */
+var viewData = [];
+/**
+ * @async
+ * @description - function to run needed helper. called by get request with endpoint /processImage and needed params
+ * @param {Request} req - http request
+ * @param {Response} res - http response
+ * @returns {<void>Promise}
+ */
 var processImage = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var imageObj, filePathObj;
+    var imageObj, filePathObj, resMessage;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 imageObj = createImageObjFromRequest(req);
-                filePathObj = verifyImagePathsExists(imageObj);
+                filePathObj = createFilePathObj(imageObj);
+                // if image exists
                 if (!filePathObj.pathExists) {
-                    res.send(filePathObj.message);
+                    sendHTMLContent(res, filePathObj.message, filePathObj.updatedFilePath, imageObj, filePathObj.pathExists);
                     return [2 /*return*/];
                 }
                 return [4 /*yield*/, createNewImage(imageObj, filePathObj)];
             case 1:
                 resMessage = _a.sent();
-                res.send(resMessage);
+                sendHTMLContent(res, resMessage, filePathObj.updatedFilePath, imageObj, filePathObj.pathExists);
                 return [2 /*return*/];
         }
     });
 }); };
+/**
+ * @async
+ * @description - helper function to create new image. uses sharp api
+ * @param {ImageRequestObj} imageObj - object of passed image info
+ * @param {FilePathObj} filePathObj - object for filepath info
+ * @returns {Promise<string>} - generated message to return to html
+ */
 var createNewImage = function (imageObj, filePathObj) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -81,20 +97,30 @@ var createNewImage = function (imageObj, filePathObj) { return __awaiter(void 0,
             case 3:
                 _a.sent();
                 _a.label = 4;
-            case 4: return [2 /*return*/, "New Image Created - ".concat(imageObj.imageName, "_").concat(imageObj.id, "!<br><hr><br>File path - ").concat(filePathObj.updatedFilePath)];
+            case 4: return [2 /*return*/, "New Image Created and Added to Gallery - ".concat(imageObj.imageName, "_").concat(imageObj.id, "!")];
         }
     });
 }); };
-var verifyImagePathsExists = function (imageObj) {
+/**
+ * @description - creates the file path object for use in file
+ * @param {ImageRequestObj} imageObj - object of passed image info
+ * @returns {FilePathObj} - newly created file path object
+ */
+var createFilePathObj = function (imageObj) {
     var originalFilePath = "src/assets/originals/".concat(imageObj.imageName, ".jpg");
     var updatedFilePath = "src/assets/updated/".concat(imageObj.imageName, "_").concat(imageObj.id, ".jpg");
     return {
         pathExists: !fs_1.default.existsSync(originalFilePath) ? false : fs_1.default.existsSync(updatedFilePath) ? false : true,
-        message: !fs_1.default.existsSync(originalFilePath) ? 'This image does not exist!' : 'This image path already exists!',
+        message: !fs_1.default.existsSync(originalFilePath) ? 'This image does not exist!' : 'Image exists in Gallery!',
         originalFilePath: originalFilePath,
         updatedFilePath: updatedFilePath,
     };
 };
+/**
+ * @description - created image object used in file from http request params
+ * @param {Request} req - http request
+ * @returns {ImageRequestObj} - newly created image object
+ */
 var createImageObjFromRequest = function (req) {
     return {
         imageName: req.params.imageName,
@@ -104,8 +130,27 @@ var createImageObjFromRequest = function (req) {
                 width: parseInt(req.params.width),
                 height: parseInt(req.params.height),
             },
-            grayscale: Boolean(req.params.grayscale),
+            grayscale: req.params.grayscale === 'true' ? true : false,
         },
     };
 };
-exports.default = { processImage: processImage, createNewImage: createNewImage };
+/**
+ * @description - function that generates html data and image, tells user new image has been created. will not generate
+ * new image and pass to gallery if the file path already exists
+ * @param {Response} res -http request
+ * @param {string} resMessage - response message to send to user
+ * @param {string} filePath - file path of new image
+ * @param {;ImageRequestObj} imageObj - object of image data passed
+ * @param {boolean} pathExists - whether or not current image file path exists
+ * @returns {void}
+ */
+var sendHTMLContent = function (res, resMessage, filePath, imageObj, pathExists) {
+    filePath = filePath.slice(3);
+    var htmlInfo = "\n    <h2>".concat(resMessage, "</h2>\n    <br><hr><br>\n    <ul>\n      <li>Image Used: ").concat(imageObj.imageName, "</li>\n      <li>Passed ID: ").concat(imageObj.id, "</li>\n      <li>Options:</li>\n        <ul>\n          <li>Height: ").concat(imageObj.options.resize.height, "</li>\n          <li>Width: ").concat(imageObj.options.resize.width, "</li>\n          <li>Grayscale: ").concat(imageObj.options.grayscale, "</li>\n        </ul>\n    </ul>\n    <br><hr><hr><br>\n    <img src='").concat(filePath, "' alt=\"new image\">\n  ");
+    if (pathExists) {
+        var viewDataObj = { imageObj: imageObj, filePath: filePath };
+        viewData.push(viewDataObj);
+    }
+    res.send(htmlInfo);
+};
+exports.default = { processImage: processImage, createNewImage: createNewImage, viewData: viewData };

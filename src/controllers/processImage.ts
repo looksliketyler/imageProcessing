@@ -4,23 +4,35 @@ import sharp from 'sharp';
 
 import { FilePathObj, ImageRequestObj } from '../models/imageModels.model';
 
-let resMessage: string;
+/** @description - GLOBAL VARIABLE - array that will be added to and used in index.ejs */
+const viewData: object[] = [];
 
+/**
+ * @async
+ * @description - function to run needed helper. called by get request with endpoint /processImage and needed params
+ * @param {Request} req - http request
+ * @param {Response} res - http response
+ * @returns {<void>Promise}
+ */
 const processImage = async (req: Request, res: Response): Promise<void> => {
-  // create object
   const imageObj: ImageRequestObj = createImageObjFromRequest(req);
-
-  // early return statement
-  const filePathObj: FilePathObj = verifyImagePathsExists(imageObj);
+  const filePathObj: FilePathObj = createFilePathObj(imageObj);
+  // if image exists
   if (!filePathObj.pathExists) {
-    res.send(filePathObj.message);
+    sendHTMLContent(res, filePathObj.message, filePathObj.updatedFilePath, imageObj, filePathObj.pathExists);
     return;
   }
-
-  resMessage = await createNewImage(imageObj, filePathObj);
-  res.send(resMessage);
+  const resMessage = await createNewImage(imageObj, filePathObj);
+  sendHTMLContent(res, resMessage, filePathObj.updatedFilePath, imageObj, filePathObj.pathExists);
 };
 
+/**
+ * @async
+ * @description - helper function to create new image. uses sharp api
+ * @param {ImageRequestObj} imageObj - object of passed image info
+ * @param {FilePathObj} filePathObj - object for filepath info
+ * @returns {Promise<string>} - generated message to return to html
+ */
 const createNewImage = async (imageObj: ImageRequestObj, filePathObj: FilePathObj): Promise<string> => {
   if (imageObj.options.grayscale) {
     await sharp(`${filePathObj.originalFilePath}`)
@@ -34,20 +46,30 @@ const createNewImage = async (imageObj: ImageRequestObj, filePathObj: FilePathOb
       .jpeg()
       .toFile(`${filePathObj.updatedFilePath}`);
   }
-  return `New Image Created - ${imageObj.imageName}_${imageObj.id}!<br><hr><br>File path - ${filePathObj.updatedFilePath}`;
+  return `New Image Created and Added to Gallery - ${imageObj.imageName}_${imageObj.id}!`;
 };
 
-const verifyImagePathsExists = (imageObj: ImageRequestObj): FilePathObj => {
+/**
+ * @description - creates the file path object for use in file
+ * @param {ImageRequestObj} imageObj - object of passed image info
+ * @returns {FilePathObj} - newly created file path object
+ */
+const createFilePathObj = (imageObj: ImageRequestObj): FilePathObj => {
   const originalFilePath = `src/assets/originals/${imageObj.imageName}.jpg`;
   const updatedFilePath = `src/assets/updated/${imageObj.imageName}_${imageObj.id}.jpg`;
   return {
     pathExists: !fs.existsSync(originalFilePath) ? false : fs.existsSync(updatedFilePath) ? false : true,
-    message: !fs.existsSync(originalFilePath) ? 'This image does not exist!' : 'This image path already exists!',
+    message: !fs.existsSync(originalFilePath) ? 'This image does not exist!' : 'Image exists in Gallery!',
     originalFilePath,
     updatedFilePath,
   };
 };
 
+/**
+ * @description - created image object used in file from http request params
+ * @param {Request} req - http request
+ * @returns {ImageRequestObj} - newly created image object
+ */
 const createImageObjFromRequest = (req: Request): ImageRequestObj => {
   return {
     imageName: req.params.imageName,
@@ -57,9 +79,50 @@ const createImageObjFromRequest = (req: Request): ImageRequestObj => {
         width: parseInt(req.params.width),
         height: parseInt(req.params.height),
       },
-      grayscale: Boolean(req.params.grayscale),
+      grayscale: req.params.grayscale === 'true' ? true : false,
     },
   };
 };
 
-export default { processImage, createNewImage };
+/**
+ * @description - function that generates html data and image, tells user new image has been created. will not generate
+ * new image and pass to gallery if the file path already exists
+ * @param {Response} res -http request
+ * @param {string} resMessage - response message to send to user
+ * @param {string} filePath - file path of new image
+ * @param {;ImageRequestObj} imageObj - object of image data passed
+ * @param {boolean} pathExists - whether or not current image file path exists
+ * @returns {void}
+ */
+const sendHTMLContent = (
+  res: Response,
+  resMessage: string,
+  filePath: string,
+  imageObj: ImageRequestObj,
+  pathExists: boolean
+): void => {
+  filePath = filePath.slice(3);
+  const htmlInfo = `
+    <h2>${resMessage}</h2>
+    <br><hr><br>
+    <ul>
+      <li>Image Used: ${imageObj.imageName}</li>
+      <li>Passed ID: ${imageObj.id}</li>
+      <li>Options:</li>
+        <ul>
+          <li>Height: ${imageObj.options.resize.height}</li>
+          <li>Width: ${imageObj.options.resize.width}</li>
+          <li>Grayscale: ${imageObj.options.grayscale}</li>
+        </ul>
+    </ul>
+    <br><hr><hr><br>
+    <img src='${filePath}' alt="new image">
+  `;
+  if (pathExists) {
+    const viewDataObj = { imageObj, filePath };
+    viewData.push(viewDataObj);
+  }
+  res.send(htmlInfo);
+};
+
+export default { processImage, createNewImage, viewData };

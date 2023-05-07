@@ -88,7 +88,7 @@ describe('A function to create an image from endpoint processImage', function ()
                 case 0: return [4 /*yield*/, functions.default.createNewImage(imageObj, filePathObj)];
                 case 1:
                     result = _a.sent();
-                    expect(result).toMatch('New Image Created - tree_1921681254!');
+                    expect(result).toMatch('New Image Created and Added to Gallery - tree_1921681254!');
                     // fs.unlink used to delete newly generated image as running jasmine test again will fail
                     fs_1.default.unlink(updatedFilePath, function () {
                         console.log('deleted file');

@@ -28,16 +28,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var postFunction = __importStar(require("./controllers/imageController"));
-var getFunction = __importStar(require("./controllers/processImage"));
+var processImage = __importStar(require("./controllers/processImage"));
+var viewImages = __importStar(require("./controllers/viewImages"));
+var listenFunctions = __importStar(require("./controllers/listenController"));
 var app = (0, express_1.default)();
 var port = 3000;
 app.use(express_1.default.json());
 app.use(express_1.default.static('src'));
+app.set('view engine', 'ejs');
 // post request - uses changeImage endpoint and calls the controller changeImage
 // didnt realize this should be get request so it can be ran in browser.
 // leaving here as it passes all tests
 app.post('/changeImage', postFunction.default.changeImage);
-app.get('/processImage/:imageName/:newImageId/:width/:height/:grayscale', getFunction.default.processImage);
+// endpoint for creating/processing the image
+app.get('/processImage/:imageName/:newImageId/:width/:height/:grayscale', processImage.default.processImage);
+// endpoint to load all images on a page
+app.get('/viewImages', viewImages.default.viewImages);
 app.listen(port, function () {
-    console.log("Listening on port ".concat(port, "..."));
+    listenFunctions.default.listen(port);
 });

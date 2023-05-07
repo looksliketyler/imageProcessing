@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Processing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="p-3 py-5">Original Images</h2>
+        <div class="card mb-3 m-5" style="max-width: 50rem;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img style="max-width: 15rem; height: auto;" src="../assets/originals/tree.jpg" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h4 class="card-title">Tree examples</h4>
+                <a href="http://localhost:3000/processImage/tree/3690/200/500/false" target="_blank" class="card-link">200/500</a>
+                <a href="http://localhost:3000/processImage/tree/3691/450/200/false" target="_blank" class="card-link">450/200</a>
+                <a href="http://localhost:3000/processImage/tree/3692/250/250/true" target="_blank" class="card-link">250/250 Grayscale</a>
+                <a href="http://localhost:3000/processImage/tree/3693/20/50/false" target="_blank" class="card-link">20/50</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3 m-5" style="max-width: 50rem;">
+          <div class="row no-gutters">
+            <div class="col-md-8">
+              <div class="card-body">
+                <h4 class="card-title">Mountain View</h4>
+                <a href="http://localhost:3000/processImage/mountainView/3690/100/100/false" target="_blank" class="card-link">100/100</a>
+                <a href="http://localhost:3000/processImage/mountainView/3691/500/300/true" target="_blank" class="card-link">500/300</a>
+                <a href="http://localhost:3000/processImage/mountainView/3692/50/50/false" target="_blank" class="card-link">50/50 Grayscale</a>
+                <a href="http://localhost:3000/processImage/mountainView/3693/600/100/false" target="_blank" class="card-link">600/100</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <img style="max-width: 15rem; height: auto;" src="../assets/originals/mountainView.jpg" alt="...">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2 class="text-center pt-4">Gallery</h2>
+        <h4><%= viewData.length %> Image(s) Found</h4>
+      </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 pt-4 mx-5">
+      <% viewData.forEach(data => { %>
+        <div class="col mb-4">
+          <div class="card">
+            <img src="..<%= data.filePath %>" class="card-img-top" style="max-width: fit-content;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= data.imageObj.imageName %>_<%= data.imageObj.id %></h5>
+              <p class="card-text">Image Data</p>
+              <ul class="list-group-flush p-0">
+                <li class="list-group-item">Image: <%= data.imageObj.imageName %></li>
+                <li class="list-group-item">Id: <%= data.imageObj.id %></li>
+                <li class="list-group-item">Width: <%= data.imageObj.options.resize.width %></li>
+                <li class="list-group-item">Height: <%= data.imageObj.options.resize.height %></li>
+                <li class="list-group-item">Grayscale: <%= data.imageObj.options.grayscale %></li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <p>Path: <%= data.filePath %></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+</html>
