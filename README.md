@@ -4,16 +4,18 @@ an express project that edits an image
 
 # Endpoints
 
--this endpoint was created first to use a request body payload. once completed i realized project
-should use get request
-`app.post('/changeImage', postFunction.default.changeImage);`
+-----RUN THIS ENDPOINT AFTER STARTING SERVER. AS IT ALLOWS FOR EXAMPLE LINKS FOR PROCESS IMAGE ENDPOINT
+-----AND LINKS TO THE JSDOC SITE
+-viewImages will render index.ejs and show original images and a gallery of new ones
+`app.get('/viewImages', viewImages.default.viewImages);`
 
 -imageName will either be 'tree' or 'mountainView'. grayscale should be sent as false/true
 -example: http://localhost:3000/processImage/mountainView/6/200/200/false
 `app.get('/processImage/:imageName/:newImageId/:width/:height/:grayscale', getFunction.default.processImage);`
 
--viewImages will render index.ejs and show original images and a gallery of new ones
-`app.get('/viewImages', viewImages.default.viewImages);`
+-this endpoint was created first to use a request body payload. once completed i realized project
+should use get request
+`app.post('/changeImage', postFunction.default.changeImage);`
 
 # Run Server
 

@@ -1,0 +1,2202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Global</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Global</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2></h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="resMessage"><span class="type-signature"></span>resMessage<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <ul>
+<li>global variable to assign message to response</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="imageController.js.html">imageController.js</a>, <a href="imageController.js.html#line45">line 45</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="viewData"><span class="type-signature"></span>viewData<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <ul>
+<li>GLOBAL VARIABLE - array that will be added to and used in index.ejs</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="processImage.js.html">processImage.js</a>, <a href="processImage.js.html#line45">line 45</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="changeImage"><span class="type-signature">(async) </span>changeImage<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Promise.&lt;void>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <ul>
+<li>function that creates imageObj from request body. passes to createNewImage function
+to create image and returns response to user</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>http request</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>http response</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="imageController.js.html">imageController.js</a>, <a href="imageController.js.html#line68">line 68</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;void></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="checkRequest"><span class="type-signature"></span>checkRequest<span class="signature">(req)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <ul>
+<li>helper function to check for request body. sets message to global variable for resMessage
+and returns boolean value</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>http request</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="imageController.js.html">imageController.js</a>, <a href="imageController.js.html#line52">line 52</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="createFilePathObj"><span class="type-signature"></span>createFilePathObj<span class="signature">(imageObj)</span><span class="type-signature"> &rarr; {FilePathObj}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <ul>
+<li>creates the file path object for use in file</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>imageObj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ImageRequestObj</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object of passed image info</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="processImage.js.html">processImage.js</a>, <a href="processImage.js.html#line109">line 109</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>newly created file path object</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">FilePathObj</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="createImageObjFromRequest"><span class="type-signature"></span>createImageObjFromRequest<span class="signature">(req)</span><span class="type-signature"> &rarr; {ImageRequestObj}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <ul>
+<li>created image object used in file from http request params</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>http request</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="processImage.js.html">processImage.js</a>, <a href="processImage.js.html#line124">line 124</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>newly created image object</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">ImageRequestObj</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="createNewImage"><span class="type-signature">(async) </span>createNewImage<span class="signature">(imageObj)</span><span class="type-signature"> &rarr; {Promise.&lt;string>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <ul>
+<li>function that uses imageObj. uses sharp api to edit an image based on parameters send in request body</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>imageObj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ImageRequestObj</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>image info to edit and set</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="imageController.js.html">imageController.js</a>, <a href="imageController.js.html#line117">line 117</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;string></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="createNewImage"><span class="type-signature">(async) </span>createNewImage<span class="signature">(imageObj, filePathObj)</span><span class="type-signature"> &rarr; {Promise.&lt;string>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <ul>
+<li>helper function to create new image. uses sharp api</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>imageObj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ImageRequestObj</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object of passed image info</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>filePathObj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">FilePathObj</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object for filepath info</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="processImage.js.html">processImage.js</a>, <a href="processImage.js.html#line80">line 80</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>generated message to return to html</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;string></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="listen"><span class="type-signature"></span>listen<span class="signature">(port)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <ul>
+<li>function used in callback of app.listen. this function checks for images in the updated folder.
+if those images are found we remove them on start up as we dont want to keep every image. images should only be kept
+as long as server is running to avoid creating a large file size</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>port</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>port number server running on</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="listenController.js.html">listenController.js</a>, <a href="listenController.js.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="processImage"><span class="type-signature">(async) </span>processImage<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <ul>
+<li>function to run needed helper. called by get request with endpoint /processImage and needed params</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>http request</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>http response</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="processImage.js.html">processImage.js</a>, <a href="processImage.js.html#line53">line 53</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="sendHTMLContent"><span class="type-signature"></span>sendHTMLContent<span class="signature">(res, resMessage, filePath, pathExists)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <ul>
+<li>function that generates html data and image, tells user new image has been created. will not generate
+new image and pass to gallery if the file path already exists</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>http request</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>resMessage</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>response message to send to user</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>filePath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>file path of new image</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code></code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pathExists</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>whether or not current image file path exists</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="processImage.js.html">processImage.js</a>, <a href="processImage.js.html#line147">line 147</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="verifyImagePathsExists"><span class="type-signature"></span>verifyImagePathsExists<span class="signature">(imagePath, newPath)</span><span class="type-signature"> &rarr; {PathExists}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <ul>
+<li>helper function to verify that either original image exists or new image path exists
+if current path doesnt exists or new path already exists, we dont want to keep processing image</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>imagePath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>path determined from request body imageName</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>newPath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>= path determined from request body id and imageName</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="imageController.js.html">imageController.js</a>, <a href="imageController.js.html#line105">line 105</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">PathExists</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="viewImages"><span class="type-signature"></span>viewImages<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <ul>
+<li>renders an ejs template - index.ejs - and sends an array of image info</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>http request</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>http response</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="viewImages.js.html">viewImages.js</a>, <a href="viewImages.js.html#line33">line 33</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#changeImage">changeImage</a></li><li><a href="global.html#checkRequest">checkRequest</a></li><li><a href="global.html#createFilePathObj">createFilePathObj</a></li><li><a href="global.html#createImageObjFromRequest">createImageObjFromRequest</a></li><li><a href="global.html#createNewImage">createNewImage</a></li><li><a href="global.html#listen">listen</a></li><li><a href="global.html#processImage">processImage</a></li><li><a href="global.html#resMessage">resMessage</a></li><li><a href="global.html#sendHTMLContent">sendHTMLContent</a></li><li><a href="global.html#verifyImagePathsExists">verifyImagePathsExists</a></li><li><a href="global.html#viewData">viewData</a></li><li><a href="global.html#viewImages">viewImages</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat May 06 2023 23:09:37 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

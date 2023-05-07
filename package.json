@@ -8,12 +8,17 @@
     "prettier": "prettier --config .prettierrc . --ext .ts --write",
     "start": "nodemon src/index.ts",
     "jasmine": "jasmine",
-    "test": "ts-node node_modules/jasmine/bin/jasmine"
+    "test": "ts-node node_modules/jasmine/bin/jasmine",
+    "doc": "jsdoc -c jsdoc.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "@babel/preset-typescript": "^7.21.5",
     "@eslint/eslintrc": "^2.0.2",
     "@types/express": "^4.17.17",
     "@types/rimraf": "^4.0.5",
@@ -25,6 +30,7 @@
     "jasmine": "^4.6.0",
     "jasmine-spec-reporter": "^7.0.0",
     "jsdoc": "^4.0.2",
+    "jsdoc-babel": "^0.5.0",
     "nodemon": "^2.0.22",
     "prettier": "^2.5.1",
     "rimraf": "^5.0.0",
