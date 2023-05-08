@@ -81,11 +81,7 @@ const createNewImage = async (imageObj: ImageRequestObj): Promise<string> => {
 
     // truthy checking that the resize object has content
     if (imageObj.options.grayscale) {
-      await sharp(`${originalFilePath}`)
-        .resize(imageObj.options.resize)
-        .grayscale()
-        .jpeg()
-        .toFile(`${updatedFilePath}`);
+      await sharp(`${originalFilePath}`).resize(imageObj.options.resize).grayscale().jpeg().toFile(`${updatedFilePath}`);
     } else {
       await sharp(`${originalFilePath}`).resize(imageObj.options.resize).jpeg().toFile(`${updatedFilePath}`);
     }

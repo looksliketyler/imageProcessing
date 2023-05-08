@@ -12,13 +12,11 @@ const imageObj: ImageRequestObj = {
   },
 };
 
-const originalFilePath = `src/assets/originals/${imageObj.imageName}.jpg`;
 const updatedFilePath = `src/assets/updated/${imageObj.imageName}_${imageObj.id}.jpg`;
 
 const filePathObj: FilePathObj = {
   pathExists: true,
   message: '',
-  originalFilePath,
   updatedFilePath,
 };
 

@@ -13,6 +13,10 @@ export interface PathExists {
 }
 
 export interface FilePathObj extends PathExists {
-  originalFilePath: string;
   updatedFilePath: string;
+}
+
+export interface ValidatedParams {
+  validated: boolean;
+  resMessage: string;
 }
