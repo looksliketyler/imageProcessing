@@ -93,11 +93,9 @@ const validateParams = (req: Request): ValidatedParams => {
   let resMessage = '';
   // verify passed imageName is usable
   for (let i = 0; i < imageNameArr.length; i++) {
+    resMessage = `${params.imageName} is not a known image`;
     if (params.imageName === imageNameArr[i]) {
       validated = true;
-      break;
-    } else {
-      resMessage = `${params.imageName} is not a known image`;
       break;
     }
   }
